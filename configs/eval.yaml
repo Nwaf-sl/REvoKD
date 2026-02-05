@@ -1,0 +1,58 @@
+step_models:
+  seed_answer:
+    name: "Qwen3-VL-4B-my"
+    max_tokens: 8192
+    temperature: 0.2
+    use_tools: true
+    use_thinking: false
+  evaluation:
+    name: "qwen3-max"
+    max_tokens: 1024
+    temperature: 0.3
+    use_tools: false
+
+processing:
+  max_workers: 24
+  max_tasks: 100000
+
+logging:
+  eval_file_path: "tmp/eval/"
+  main_log_file: "logs/main.log"
+  graph_log_file: "logs/graph.log"
+
+paths:
+  data_file: "/mnt/data/dataset_mllm/MME-RealWorld-Lite/MME-RealWorld-Lite.jsonl"
+
+api_configs:
+  "Qwen3-VL-30B-A3B-Instruct":
+    api_base: "Qwen3-VL-30B-A3B-Instruct_ADDRESS"
+    api_key_env: "Qwen3-VL-30B-A3B-Instruct_API_KEY"
+  "Qwen3-VL-235B-A22B-Instruct":
+    api_base: "Qwen3-VL-235B-A22B-Instruct_ADDRESS"
+    api_key_env: "Qwen3-VL-235B-A22B-Instruct_API_KEY"
+  "Qwen3-30B-A3B-Instruct-2507":
+    api_base: "Qwen_3_30B_A3B_ADDRESS"
+    api_key_env: "Qwen_3_30B_A3B_API_KEY"
+  "qwen3-vl-plus":
+    api_base: "qwen3-vl-plus_ADDRESS"
+    api_key_env: "qwen3-vl-plus_API_KEY"
+  "qwen3-max":
+    api_base: "qwen3-max_ADDRESS"
+    api_key_env: "qwen3-max_API_KEY"
+  "Qwen3-VL-4B-Instruct":
+    api_base: "Qwen3-VL-4B-Instruct_ADDRESS"
+    api_key_env: "Qwen3-VL-4B-Instruct_API_KEY"
+  "Qwen3-VL-4B-my":
+    api_base: "http://0.0.0.0:8000/v1"
+    api_key_env: EMPTY
+  "Qwen3-VL-8B-Instruct":
+    api_base: "Qwen3-VL-8B-Instruct_ADDRESS"
+    api_key_env: "Qwen3-VL-8B-Instruct_API_KEY"
+  "Qwen3-VL-32B-Instruct":
+    api_base: "Qwen3-VL-32B-Instruct_ADDRESS"
+    api_key_env: "Qwen3-VL-32B-Instruct_API_KEY"
+
+
+  "InternVL3_5-38B":
+    api_base: "InternVL3_5-38B_ADDRESS"
+    api_key_env: "InternVL3_5-38B_API_KEY"

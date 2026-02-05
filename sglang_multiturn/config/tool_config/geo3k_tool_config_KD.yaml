@@ -1,0 +1,52 @@
+tools:
+  - class_name: "verl.tools.image_zoom_qwen.ImageZoomInTool"
+    config:
+      type: native
+      num_workers: 10
+      rate_limit: 10
+      timeout: 30
+      enable_global_rate_limit: true
+    tool_schema:
+      type: "function"
+      function:
+        name: "image_zoom_tool"
+        description: "Zoom in on a specific region of an image by cropping it based on a bounding box (bbox) and an optional object label."
+        parameters:
+          type: "object"
+          properties:
+            bbox_2d:
+              type: "array"
+              items:
+                type: "number"
+              minItems: 4
+              maxItems: 4
+              description: "Bounding box as [x1, y1, x2, y2] in relative coords (0~1000), where (x1, y1) is top-left and (x2, y2) is bottom-right."
+            label:
+              type: "string"
+              description: "Optional label of the object inside the bounding box."
+            img_idx:
+              type: "number"
+              description: "Index of the image to zoom in (starting from 0)."
+          required: ["bbox_2d", "label", "img_idx"]
+  - class_name: verl.tools.single_web_search_data_cache.SearchTool
+    config:
+      retrieval_service_url: 
+      num_workers: 10
+      rate_limit: 10
+      timeout: 30
+      topk: 5
+      type: native
+      cache_db_path: "database/search_cache.db"
+    tool_schema:
+      type: function
+      function:
+        name: search
+        description: Search for information from the internet.
+        parameters:
+          type: object
+          properties:
+            query:
+              type: string
+              description: A fully-formed semantic search query
+          required:
+            - query
