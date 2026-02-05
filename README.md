@@ -14,17 +14,9 @@ Before running the code, ensure:
 
 ---
 
-## 📦 Installation Steps
+## 📦 Installation 
 
-### 1. Clone the repository
-```bash
-git clone https://anonymous.4open.science/r/REvoKD-B3C
-cd ReEvoKD
-```
-
-
- 
-### 2. Install dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -32,18 +24,17 @@ pip install -r requirements.txt
 
 
 ## 🚀 Usage
-1️⃣ Supervised Fine-Tuning (SFT)
+1️⃣ Trajectory Distillation
 
-Run the SFT training script:
+Run the training script:
 
 ```bash
 sh train_lora_agent.sh
 ```
 
-2️⃣ Reinforcement Learning (RL)
+2️⃣ Multi-Round Self-Evolutionary Distillation
 
 Before starting RL training: Configure Search Tool API credentials in the appropriate config files.
-Run:
 
 ```bash
 sh run_qwen3vl-4b_multiturn.sh
@@ -52,7 +43,6 @@ sh run_qwen3vl-4b_multiturn.sh
 
 Before running evaluation:Edit configs/eval.yaml
 Set your API key and Search Tool API credentials
-Run:
 
 ```bash
 python eval.py
