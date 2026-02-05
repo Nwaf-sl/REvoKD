@@ -1,4 +1,4 @@
-# ReEvoKD
+# REvoKD
 **Self-Evolutionary Reinforced Knowledge Distillation for Multi-Modal Tool-Use Agents**
 
 
