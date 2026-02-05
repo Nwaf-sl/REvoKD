@@ -1,4 +1,3 @@
-# run on 8xH100
 # make sure your current working directory is the root of the project
 
 set -x
